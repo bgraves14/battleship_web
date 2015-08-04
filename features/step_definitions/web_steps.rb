@@ -217,3 +217,7 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then(/^I should see that a new game has been created$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
