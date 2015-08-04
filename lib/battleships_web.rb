@@ -8,7 +8,12 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/name' do
-    "What's your name?"
+    erb :name
+  end
+
+  get '/hello' do
+    @player = params[:name]
+    erb :name
   end
 
   # start the server if ruby file executed directly

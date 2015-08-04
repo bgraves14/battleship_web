@@ -1,8 +1,11 @@
 <div>
-<form action="">
-What's your name?
-<input type="text" name="name">
-
-</form>
-
+  <%if @player %>
+    Hello, <%= @player %>!
+  <%else%>
+    <form action="/hello">
+    What's your name?
+    <input type="text" name="name">
+    <input type="submit" value="Submit">
+    </form>
+  <%end%>
 </div>

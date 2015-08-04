@@ -219,5 +219,6 @@ Then /^show me the page$/ do
 end
 
 Then(/^I should have the name saved$/) do
-  expect(name).to eq params[:name] 
+  expect(name).to eq params[:name]
 end
+
