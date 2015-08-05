@@ -16,3 +16,8 @@ Feature: Starting the game
     When I fill in "name" with ""
     And I press "Submit"
     Then I should see "What's your name"
+
+  Scenario: The board shows up on game
+    Given I am on "new game"
+    Then I should see my "own board"
+    and my "opponents board"

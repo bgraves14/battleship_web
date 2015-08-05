@@ -3,7 +3,7 @@ require 'sinatra/base'
 
 class BattleshipsWeb < Sinatra::Base
   set :views, Proc.new { File.join(root, "..", "views") }
-  enable :sessions 
+  enable :sessions
 
   get '/' do
     erb :index
@@ -18,6 +18,9 @@ class BattleshipsWeb < Sinatra::Base
   get '/game' do
     @player = params[:name]
     session[:name]
+    $game = Game.new
+    game.own_board_view game.player_1
+    game.opponent_board_view game.player_2
   end
 
 
