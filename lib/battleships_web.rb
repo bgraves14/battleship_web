@@ -19,8 +19,8 @@ class BattleshipsWeb < Sinatra::Base
     @player = params[:name]
     session[:name]
     $game = Game.new
-    game.own_board_view game.player_1
-    game.opponent_board_view game.player_2
+    $game.own_board_view game.player_1
+    $game.opponent_board_view game.player_2
   end
 
 
