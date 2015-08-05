@@ -15,4 +15,4 @@ Feature: Starting the game
     Given I am on "What's your name?"
     When I fill in "name" with ""
     And I press "Submit"
-    Then I should see "Please enter your name"
+    Then I should see "What's your name"
