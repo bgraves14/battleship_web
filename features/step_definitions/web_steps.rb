@@ -4,7 +4,7 @@
 # newer version of cucumber-sinatra. Consider adding your own code to a new file
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
-
+#
 require 'uri'
 require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
@@ -214,10 +214,39 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   end
 end
 
-Then /^show me the page$/ do
-  save_and_open_page
-end
+# Then /^show me the page$/ do
+#   save_and_open_page
+# end
+#
+# Then(/^I should have the name saved$/) do
+#   expect(name).to eq params[:name]
+# end
 
-Then(/^I should have the name saved$/) do
-  expect(name).to eq params[:name]
-end
+# When(/^I submit "([^"]*)"$/) do |arg1|
+#   click_on 'Submit'
+# end
+#
+# Then(/^I should visit the game page$/) do
+#    visit '/game'
+# end
+#
+# Then(/^I should see my "([^"]*)"$/) do |arg1|
+#   expect(page).to have_content "ABCDEFGHIJ
+#   ------------
+#  1|          |1
+#  2|          |2
+#  3|          |3
+#  4|          |4
+#  5|          |5
+#  6|          |6
+#  7|          |7
+#  8|          |8
+#  9|          |9
+# 10|          |10
+#   ------------
+#    ABCDEFGHIJ"
+# end
+
+# Then(/^my "([^"]*)"$/) do |arg1|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end

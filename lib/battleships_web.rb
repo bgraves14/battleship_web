@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require 'battleships'
 
 class BattleshipsWeb < Sinatra::Base
   set :views, Proc.new { File.join(root, "..", "views") }
@@ -11,16 +11,24 @@ class BattleshipsWeb < Sinatra::Base
 
   get '/name' do
     @player = params[:name]
-    session[:name]
+    session[:name] = @player
     erb :name
   end
 
   get '/game' do
-    @player = params[:name]
-    session[:name]
-    $game = Game.new
-    $game.own_board_view game.player_1
-    $game.opponent_board_view game.player_2
+    $game = Game.new(Player, Board)
+    @player = session[:name]
+    $game.player_2.place_ship Ship.destroyer, 'A1', :vertically
+    erb :game
+  end
+
+  post '/game' do
+    @ship = params[:ship]
+    @coordinate = params[:coordinate]
+    @direction = params[:shoot_at]
+    $game.player_1.place_ship Ship.send(@ship), @coordinate.capitalize, @direction.to_sym
+    puts @shoot_at
+    erb :game
   end
 
 

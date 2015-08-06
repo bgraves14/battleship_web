@@ -19,5 +19,4 @@ Feature: Starting the game
 
   Scenario: The board shows up on game
     Given I am on "new game"
-    Then I should see my "own board"
-    And my "opponents board"
+    Then I should see "PLAY"
