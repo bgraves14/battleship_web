@@ -25,10 +25,18 @@ class BattleshipsWeb < Sinatra::Base
   post '/game' do
     @ship = params[:ship]
     @coordinate = params[:coordinate]
-    @direction = params[:shoot_at]
+    @direction = params[:direction]
     $game.player_1.place_ship Ship.send(@ship), @coordinate.capitalize, @direction.to_sym
     puts @shoot_at
     erb :game
+  end
+
+  get '/play_single' do
+    erb :play_single
+  end
+
+  post '/play_single' do
+    erb :play_single
   end
 
 

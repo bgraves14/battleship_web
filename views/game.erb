@@ -15,8 +15,28 @@ PLAY
  </div>
 </div>
 
-Shoot at:
+<!-- Shoot at:
 <form action="play_single" method="post">
   <input type="text" name="coord">
   <input value="Fire!" type="submit">
+</form> -->
+<div style= "padding-top:300px">Coordinates:
+
+Place Ship:
+<form method="post">
+  <select name="ship">
+    <option value="submarine">Submarine</option>
+    <option value="destroyer">Destroyer</option>
+    <option value="cruiser">Cruiser</option>
+    <option value="battleship">Battleship</option>
+    <option value="aircraft_carrier">Aircraft Carrier</option>
+  </select>
+  <input name="coordinate" type="text">
+  <select name="direction">
+  <option value="horizontally">Horizontally</close>
+  <option value="vertically">Vertically</close>
+  <input value="Submit" type="submit">
 </form>
+
+<a href="/play_single">Play</a>
+</div>
