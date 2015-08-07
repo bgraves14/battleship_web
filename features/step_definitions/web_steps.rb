@@ -207,6 +207,8 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   expected_params = {}
   expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
 
+# ------------------------------------------------------------------------------
+
   if actual_params.respond_to? :should
     actual_params.should == expected_params
   else
@@ -214,39 +216,37 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   end
 end
 
-# Then /^show me the page$/ do
-#   save_and_open_page
-# end
-#
-# Then(/^I should have the name saved$/) do
-#   expect(name).to eq params[:name]
-# end
 
-# When(/^I submit "([^"]*)"$/) do |arg1|
-#   click_on 'Submit'
-# end
-#
-# Then(/^I should visit the game page$/) do
-#    visit '/game'
-# end
-#
-# Then(/^I should see my "([^"]*)"$/) do |arg1|
-#   expect(page).to have_content "ABCDEFGHIJ
-#   ------------
-#  1|          |1
-#  2|          |2
-#  3|          |3
-#  4|          |4
-#  5|          |5
-#  6|          |6
-#  7|          |7
-#  8|          |8
-#  9|          |9
-# 10|          |10
-#   ------------
-#    ABCDEFGHIJ"
-# end
 
-# Then(/^my "([^"]*)"$/) do |arg1|
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+Then(/^I select a ship$/) do
+  select "Submarine", from: "ship"
+end
+
+Then(/^I enter coordinate$/) do
+  fill_in "coordinate", :with => "A1"
+end
+
+Then(/^I choose a direction$/) do
+  select "Horizontally", from: "direction"
+end
+
+Then(/^I press Submit$/) do
+  click_on "Submit"
+end
+
+Then(/^I should see a ship$/) do
+  expect(page).to have_content " ABCDEFGHIJ
+  ------------
+ 1|S         |1
+ 2|          |2
+ 3|          |3
+ 4|          |4
+ 5|          |5
+ 6|          |6
+ 7|          |7
+ 8|          |8
+ 9|          |9
+10|          |10
+  ------------
+   ABCDEFGHIJ"
+end

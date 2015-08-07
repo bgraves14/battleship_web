@@ -17,6 +17,14 @@ Feature: Starting the game
     And I press "Submit"
     Then I should see "What's your name"
 
-  Scenario: The board shows up on game
+  Scenario: On the game page
     Given I am on "new game"
     Then I should see "PLAY"
+
+  Scenario: I should be able to place ships
+    Given I am on "new game"
+    Then I select a ship
+    And I enter coordinate
+    And I choose a direction
+    And I press Submit
+    Then I should see a ship
